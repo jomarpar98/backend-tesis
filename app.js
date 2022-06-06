@@ -37,6 +37,6 @@ try {
     console.log(`El error es: ${error}`)
 }
 
-app.listen(8080, ()=> {
-    console.log('Server UP running in port 8080')
+app.listen(8000, ()=> {
+    console.log('Server UP running in port 8000')
 })
