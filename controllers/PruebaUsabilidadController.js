@@ -4,6 +4,7 @@ import UsuarioModel from "../models/UsuarioModel.js";
 import { Sequelize, where } from "sequelize";
 import PerfilParticipanteModel from "../models/PerfilParticipanteModel.js";
 import CuestionarioModel from "../models/CuestionarioModel.js";
+import sendEmail from "../sendEmail.js";
 
 const {or, and, gt, lt, in: opIn} = Sequelize.Op;
 
