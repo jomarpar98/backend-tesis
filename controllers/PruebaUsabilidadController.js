@@ -134,7 +134,7 @@ export const comenzarPrueba = async (req,res) => {
             })
         }
         const mensaje = `Usted a sido habilitado para responder la prueba de usabilidad.\nIngrese a la sala de videoconferencia con el siguiente link: ${pruebaUsabilidad.eVideoconfe}` + 
-        `\nEl enlace al sistema a evaluar es: ${pruebaUsabilidad.eSistema} \nEl enlace del sistema de apoyo es: diyy85rrdraoc.cloudfront.net, \nSu contraseña es: ${usuario.contra}`
+        `\nEl enlace al sistema a evaluar es: ${pruebaUsabilidad.eSistema} \nEl enlace del sistema de apoyo es: http://bucket-front-usabilidad.s3-website-us-east-1.amazonaws.com/ \nSu contraseña es: ${usuario.contra}`
         sendEmail(req.body.email,"Prueba de usabilidad disponible",mensaje)        
     } catch (error) {
         res.json({message: error.message})

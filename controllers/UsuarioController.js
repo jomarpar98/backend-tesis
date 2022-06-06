@@ -104,7 +104,7 @@ export const createUsuario = async (req,res) => {
         let contra = Math.random().toString(16).slice(2, 8)
         req.body.contra = contra
         await UsuarioModel.create(req.body)
-        sendEmail(req.body.email,"Nuevo usuario creado",`Usted a sido registrado con exito en el sistema.\nEl enlace del sistema es: diyy85rrdraoc.cloudfront.net \nSu contraseña es: ${contra}`)
+        sendEmail(req.body.email,"Nuevo usuario creado",`Usted a sido registrado con exito en el sistema.\nEl enlace del sistema es: http://bucket-front-usabilidad.s3-website-us-east-1.amazonaws.com/ \nSu contraseña es: ${contra}`)
         res.json({
             "message" : "Registro creado correctamente"
         })

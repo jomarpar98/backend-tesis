@@ -5,7 +5,7 @@ const sendEmail = (sendTo, subject, text) => {
         service: "gmail",
         auth: {
             user:"noreplyusability@gmail.com",
-            pass:"tesis1234",
+            pass:"jomarpar98",
         },
         tls: {
             rejectUnauthorized: false,
