@@ -117,6 +117,11 @@ export const deletePruebaUsabilidad = async (req,res) => {
 
 export const comenzarPrueba = async (req,res) => {
     try {
+        const usuario = await UsuarioModel.findOne({
+            where:{
+                idUsuario: req.params.idUsuario
+            }
+        })
         const pruebaUsabilidad = await PruebaUsabilidadModel.findOne({
             where:{
                 idPruebaUsabilidad:req.params.id
@@ -129,7 +134,7 @@ export const comenzarPrueba = async (req,res) => {
             })
         }
         const mensaje = `Usted a sido habilitado para responder la prueba de usabilidad.\nIngrese a la sala de videoconferencia con el siguiente link: ${pruebaUsabilidad.eVideoconfe}` + 
-        `\nEl enlace al sistema a evaluar es: ${pruebaUsabilidad.eSistema}`
+        `\nEl enlace al sistema a evaluar es: ${pruebaUsabilidad.eSistema} \nEl enlace del sistema de apoyo es: diyy85rrdraoc.cloudfront.net, \nSu contraseña es: ${usuario.contra}`
         sendEmail(req.body.email,"Prueba de usabilidad disponible",mensaje)        
     } catch (error) {
         res.json({message: error.message})

@@ -8,6 +8,6 @@ pruebaUsabilidadRouter.get('/:id', getPruebaUsabilidad)
 pruebaUsabilidadRouter.post('/', createPruebaUsabilidad)
 pruebaUsabilidadRouter.put('/:id', updatePruebaUsabilidad)
 pruebaUsabilidadRouter.delete('/:id', deletePruebaUsabilidad)
-pruebaUsabilidadRouter.post('/:id',comenzarPrueba)
+pruebaUsabilidadRouter.post('/:id/:idUsuario',comenzarPrueba)
 
 export default pruebaUsabilidadRouter

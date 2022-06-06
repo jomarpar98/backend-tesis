@@ -13,6 +13,7 @@ const UsuarioModel = db.define('Usuario',{
     apPaterno: {type: DataTypes.STRING},
     apMaterno: {type: DataTypes.STRING},
     idRol: {type: DataTypes.INTEGER},
+    contra: {type: DataTypes.STRING},
 },{
     freezeTableName: true,
     timestamps: false,

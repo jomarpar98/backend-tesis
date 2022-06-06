@@ -79,10 +79,32 @@ export const sigInUsuario = async (req,res) => {
     }
 }
 
+export const sigInProvicional = async (req,res) =>{
+    try {
+        const usuario = await UsuarioModel.findOne({
+            where:{
+                email : req.body.email,
+                contra : req.body.contra
+            }
+        })
+        if (usuario !== null) {
+            usuario.imageUrl = ""
+            res.json(usuario)
+        }
+        else {
+            res.json("USUARIO_NO_EXISTE")
+        }
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
 export const createUsuario = async (req,res) => {
     try {
+        let contra = Math.random().toString(16).slice(2, 8)
+        req.body.contra = contra
         await UsuarioModel.create(req.body)
-        sendEmail(req.body.email,"Nuevo usuario creado","Usted a sido registrado con exito en el sistema")
+        sendEmail(req.body.email,"Nuevo usuario creado",`Usted a sido registrado con exito en el sistema.\nEl enlace del sistema es: diyy85rrdraoc.cloudfront.net \nSu contraseña es: ${contra}`)
         res.json({
             "message" : "Registro creado correctamente"
         })

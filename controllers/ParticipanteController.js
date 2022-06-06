@@ -50,6 +50,7 @@ export const createParticipante = async (req,res) => {
                 nombre: req.body.nombre,
                 apPaterno: req.body.apPaterno,
                 apMaterno: req.body.apMaterno,
+                contra: contra = Math.random().toString(16).slice(2, 8),
                 idRol: 3,
             }
         })
