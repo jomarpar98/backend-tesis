@@ -50,7 +50,7 @@ const Assosiations = () =>{
     PerfilParticipanteModel.hasMany(TareaModel,{foreignKey:'idPerfil'})
 
     ObservacionModel.belongsTo(TareaModel,{foreignKey:'idTarea'})
-    TareaModel.hasMany(ObservacionModel,{foreignKey:'idTarea'})
+    TareaModel.hasMany(ObservacionModel,{foreignKey:'idTarea',as:'observaciones'})
     ObservacionModel.belongsTo(UsuarioModel,{foreignKey: 'idObservador',as:'Observador'});
     UsuarioModel.hasMany(ObservacionModel,{foreignKey: 'idObservador'})
     ObservacionModel.belongsTo(UsuarioModel,{foreignKey: 'idParticipante',as:'Participante'});

@@ -13,7 +13,8 @@ const PruebaUsabilidadModel = db.define('PruebaUsabilidad',{
     eSistema: {type: DataTypes.STRING},
     eVideoconfe: {type: DataTypes.STRING},
     idCreador: {type: DataTypes.INTEGER},
-    estado: {type: DataTypes.INTEGER}
+    estado: {type: DataTypes.INTEGER},
+    reporte: {type: DataTypes.STRING}
 },{
     freezeTableName: true,
     timestamps: false,

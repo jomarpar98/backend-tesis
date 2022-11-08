@@ -31,9 +31,26 @@ export const getPruebaUsabilidad = async (req,res) => {
     }
 }
 
+export const getReporte = async (req,res) => {
+    try {
+        const pruebaUsabilidad = await PruebaUsabilidadModel.findOne({
+            attributes: ["reporte"],
+            where:{
+                idPruebaUsabilidad:req.params.id
+            }
+        })
+        res.json(pruebaUsabilidad)        
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
 export const getPruebaUsabilidadUsuario = async (req,res) =>{
     try {
         const pruebasUsabilidad = await PruebaUsabilidadModel.findAll({
+            order:[
+                ["creacion","DESC"]
+            ],
             include:[{
                 model: UsuarioModel,
                 as:'miembros'
@@ -136,7 +153,8 @@ export const comenzarPrueba = async (req,res) => {
         }
         const mensaje = `Usted a sido habilitado para responder la prueba de usabilidad.\nIngrese a la sala de videoconferencia con el siguiente link: ${pruebaUsabilidad.eVideoconfe}` + 
         `\nEl enlace al sistema a evaluar es: ${pruebaUsabilidad.eSistema} \nEl enlace del sistema de apoyo es: http://bucket-front-usabilidad.s3-website-us-east-1.amazonaws.com/ \nSu contraseña es: ${usuario.contra}`
-        sendEmail(req.body.email,"Prueba de usabilidad disponible",mensaje)        
+        sendEmail(req.body.email,"Prueba de usabilidad disponible",mensaje)     
+        res.json("Enviado")   
     } catch (error) {
         res.json({message: error.message})
     }

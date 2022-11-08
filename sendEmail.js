@@ -2,10 +2,12 @@ import nodemailer from "nodemailer"
 
 const sendEmail = (sendTo, subject, text) => {
     let transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
         auth: {
             user:"noreplyusability@gmail.com",
-            pass:"jomarpar98",
+            pass:"grvoczzmmzlnpxpa",
         },
         tls: {
             rejectUnauthorized: false,
